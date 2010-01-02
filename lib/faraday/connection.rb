@@ -2,11 +2,12 @@ require 'addressable/uri'
 module Faraday
   class Connection
     module Options
-      def load_error()       @load_error         end
-      def load_error=(v)     @load_error = v     end
+      def self.extended(base)
+        base.extend Loadable
+      end
+
       def supports_async()   @supports_async     end
       def supports_async=(v) @supports_async = v end
-      def loaded?()         !@load_error         end
       alias supports_async? supports_async
     end
 

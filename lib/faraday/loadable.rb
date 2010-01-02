@@ -6,7 +6,7 @@ module Faraday
       end
     end
 
-    def self.loaded?
+    def loaded?
       load_error.nil?
     end
   end
